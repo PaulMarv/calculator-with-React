@@ -16,7 +16,7 @@
     filter: brightness(130%);
 }
 .Button.zero{
-    width: 149px;
+    width: 145px;
     grid-column: 1/ span 2;
     position: relative;
     justify-content: flex-start;
@@ -39,7 +39,7 @@
         font-size: 15px;
     }
     .Button.zero{
-        width: 80px;
+        width: 88px;
         padding:.8rem;
     }
   }
