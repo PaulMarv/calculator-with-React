@@ -16,7 +16,7 @@
     filter: brightness(130%);
 }
 .Button.zero{
-    width: 145px;
+    width: 142px;
     grid-column: 1/ span 2;
     position: relative;
     justify-content: flex-start;
