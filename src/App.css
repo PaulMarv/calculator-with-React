@@ -20,7 +20,6 @@ body{
   background: black;
   color: white;
   border-radius: 2.5rem;
-  padding: 1rem .5rem;
   box-shadow: 11px 10px 11px -10px rgba(23,21,21,0.73);
   -webkit-box-shadow: 11px 10px 11px -10px rgba(23,21,21,0.73);
   -moz-box-shadow: 11px 10px 11px -10px rgba(23,21,21,0.73);
@@ -30,19 +29,20 @@ body{
   display: grid;
   height: 100%;
   width: 100%;
-  padding-left: 1rem;
+  margin-left: 7px;
+  padding: 1rem .5rem;
 }
 
 .buttons{
   font-size: 2rem;
   display: grid;
-  grid-gap:2px;
+  grid-gap:4px;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(5, 1fr);
 }
 
 @media only screen and (max-width: 540px){
-  .container{
-    padding: 0;
+  .wrapper{
+    margin-left: 11px;
   }
 }
