@@ -1,0 +1,45 @@
+.Button{
+    background-color:#333 ;
+    width: 65px;
+    height: 65px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    cursor: pointer;
+    transition: filter .3s ease-in;
+}
+
+.Button:focus,
+.Button:active{
+    filter: brightness(130%);
+}
+.Button.zero{
+    width: 142px;
+    grid-column: 1/ span 2;
+    position: relative;
+    justify-content: flex-start;
+    padding: 1.5rem;
+}
+
+.Button.function{
+    color: black;
+    background: #a5a5a5;
+}
+
+.Button.operator{
+    background:#f1a33c ;
+}
+
+@media only screen and (max-width: 540px) {
+    .Button{
+        width: 40px;
+        height: 40px;
+        font-size: 15px;
+    }
+    .Button.zero{
+        width: 88px;
+        padding:.8rem;
+    }
+  }
