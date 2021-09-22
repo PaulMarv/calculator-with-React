@@ -16,7 +16,7 @@
     filter: brightness(130%);
 }
 .Button.zero{
-    width: 140px;
+    width: 138px;
     grid-column: 1/ span 2;
     position: relative;
     justify-content: flex-start;
@@ -24,7 +24,7 @@
 }
 
 .Button.function{
-    color: black;
+    color: rgb(170, 152, 152);
     background: #a5a5a5;
 }
 
