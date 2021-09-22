@@ -10,7 +10,8 @@
 }
 
 .display.length{
-    font-size: 1.2rem;
+    font-size: 1.4rem;
+    font-weight: bold;
 }
 @media only screen and (max-width: 540px) {
     .display{

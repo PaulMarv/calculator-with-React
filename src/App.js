@@ -8,6 +8,7 @@ function App() {
   const [history, setHistory] = useState(null);
   const [operator, setOperator] = useState(null);
 
+
   
   const handleButtonPress = (content)=>()=>{
     const num = parseFloat(value)
@@ -47,9 +48,9 @@ function App() {
         setOperator(null)
         return
       case '+':
-       operatorCheck()
-       setValue("0")
-       setOperator('+')
+        operatorCheck()
+        setValue("0")
+        setOperator('+')
         return
       case '×':
         operatorCheck()
@@ -81,8 +82,9 @@ function App() {
         }else if (operator === "÷"){
           setValue((history / num).toString())
         }
+        setOperator(null)
         setHistory(null)
-        return
+        return 
       default:
         break;
     }
