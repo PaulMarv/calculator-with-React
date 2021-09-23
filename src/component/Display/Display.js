@@ -1,11 +1,11 @@
 import React from 'react'
 import "./Display.css";
 
-export const Display = ({value}) => {
-    const num = value.replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+export const Display = ({value,view}) => {
+    const result = view.replace(/\B(?=(\d{3})+(?!\d))/g, ",")
     return (
         <div className = {`display ${value.length > 7 ? 'length' : ''}` } >
-            {num}
+            {result}
         </div>
     )
 }

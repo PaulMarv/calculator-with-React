@@ -8,7 +8,7 @@
     justify-content: center;
     font-size: 25px;
     cursor: pointer;
-    transition: filter .3s ease-in;
+    transition: filter .2s ease-in;
 }
 
 .Button:focus,
@@ -30,6 +30,9 @@
 
 .Button.operator{
     background:#f1a33c ;
+}
+.Button.operator.highlighted{
+    filter: brightness(150%);
 }
 
 @media only screen and (max-width: 540px) {
