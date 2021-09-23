@@ -120,19 +120,19 @@ function App() {
           <Buttons onButtonClick = {handleButtonPress} content = {parseFloat(view)>0?'C':'AC'} type = "function"/>
           <Buttons onButtonClick = {handleButtonPress} content ="±" type = "function"/>
           <Buttons onButtonClick = {handleButtonPress} content ="%" type = "function"/>
-          <Buttons onButtonClick = {handleButtonPress} content ="÷" type = "operator" operator={operator}/>
+          <Buttons onButtonClick = {handleButtonPress} content ="÷" type = "operator" operator={operator} view={view}/>
           <Buttons onButtonClick = {handleButtonPress} content ="7"/>
           <Buttons onButtonClick = {handleButtonPress} content ="9"/>
           <Buttons onButtonClick = {handleButtonPress} content ="8"/>
-          <Buttons onButtonClick = {handleButtonPress} content ="×" type = "operator" operator={operator}/>
+          <Buttons onButtonClick = {handleButtonPress} content ="×" type = "operator" operator={operator} view={view}/>
           <Buttons onButtonClick = {handleButtonPress} content ="4"/>
           <Buttons onButtonClick = {handleButtonPress} content ="6"/>
           <Buttons onButtonClick = {handleButtonPress} content ="5"/>
-          <Buttons onButtonClick = {handleButtonPress} content ="−" type = "operator" operator={operator}/>
+          <Buttons onButtonClick = {handleButtonPress} content ="−" type = "operator" operator={operator} view={view}/>
           <Buttons onButtonClick = {handleButtonPress} content ="1"/>
           <Buttons onButtonClick = {handleButtonPress} content ="2"/>
           <Buttons onButtonClick = {handleButtonPress} content ="3"/>
-          <Buttons onButtonClick = {handleButtonPress} content ="+" type = "operator"  operator={operator}/>
+          <Buttons onButtonClick = {handleButtonPress} content ="+" type = "operator"  operator={operator} view={view}/>
           <Buttons onButtonClick = {handleButtonPress} content ="0"/>
           <Buttons onButtonClick = {handleButtonPress} content ="."/>
           <Buttons onButtonClick = {handleButtonPress} content ="="/>
