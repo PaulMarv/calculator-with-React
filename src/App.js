@@ -2,13 +2,13 @@ import './App.css';
 import {Display} from './component/Display/Display';
 import {Buttons} from "./component/Buttons/Buttons";
 import { useState } from 'react';
+import Big from 'big.js';
 
 function App() {
   const [value, setValue] = useState("0");
   const [history, setHistory] = useState(null);
   const [operator, setOperator] = useState(null);
   const [view, setView] = useState("0")
-
 
   
   const handleButtonPress = (content)=>()=>{
@@ -84,17 +84,17 @@ function App() {
       case '=':
         if(!operator)return
         if(operator ==='+'){
-          setValue((history + num).toString())
-          setView((history + num).toString())
+          setValue((Big(history).plus(num)).toString())
+          setView((Big(history).plus(num)).toString())
         }else if (operator === "−"){
-          setValue((history - num).toString())
-          setView((history - num).toString())
+          setValue((Big(history).minus(num)).toString())
+          setView((Big(history).minus(num)).toString())
         }else if (operator === "×"){
-          setValue((history * num).toString())
-          setView((history * num).toString())
+          setValue((Big(history).times(num)).toString())
+          setView((Big(history).times(num)).toString())
         }else if (operator === "÷"){
-          setValue((history / num).toString())
-          setView((history / num).toString())
+          setValue((Big(history).div(num)).toString())
+          setView((Big(history).div(num)).toString())
         }
         setOperator(null)
         setHistory(null)
@@ -106,11 +106,11 @@ function App() {
       setValue(value + content)
       setView(value + content)
     }else{
-      setValue(parseFloat((num + content)).toString())
-      setView(parseFloat((num + content)).toString())
+      setValue(parseFloat(value + content).toString())
+      setView(parseFloat(value + content).toString())
+      // setView(Big(parseFloat(value + content)).toString())
     }
   }
-
 
   return (
     <div className="container">

@@ -9,10 +9,12 @@
     font-size: 25px;
     cursor: pointer;
     transition: filter .2s ease-in;
+    outline: none;
 }
 
-.Button:focus,
-.Button:active{
+
+.Button:active,
+.Button:focus{
     filter: brightness(130%);
 }
 .Button.zero{
@@ -32,7 +34,8 @@
     background:#f1a33c ;
 }
 .Button.operator.highlighted{
-    filter: brightness(150%);
+    -webkit-filter: invert(1);
+    filter: invert(1);
 }
 
 @media only screen and (max-width: 540px) {
