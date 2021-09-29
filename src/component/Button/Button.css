@@ -1,0 +1,33 @@
+.Button{
+    width: 62px;
+    height: 68px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    cursor: pointer;
+    transition: filter .2s ease-in;
+    outline: none;
+    border-radius: 8px;
+    font-weight:bold
+}
+
+.Button:active,
+.Button:focus{
+    filter: brightness(130%);
+    font-weight:400
+}
+
+.Button.equals{
+    height: 80%;
+    grid-column: 4;
+    grid-row: 4/span2;
+    background:#FA940F;
+}
+
+.Button.function{
+    color: #FA940F;
+}
+.Button.operator{
+    color: #FA940F;
+}
