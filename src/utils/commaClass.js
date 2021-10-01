@@ -15,7 +15,7 @@ const commaClass = (value) => {
       output = output.substring(1)
   }
   if(value.length>10){
-      return value=(parseFloat(value).toFixed(6)).toString()
+      return value=(parseFloat(value).toFixed(8)).toString()
   }
   return isNeg
   ? "-" + parseFloat(output).toLocaleString()+ decimal

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './App.css';
 import { Button } from './Component/Button/Button';
 import { Display } from './Component/Display/Display';
@@ -9,10 +9,16 @@ const App = () => {
   const [history, setHistory] = useState(null);
   const [operator, setOperator] = useState(null);
   const [view, setView] = useState("0");
-  const [total, setTotal] = useState(false)
+  const [total, setTotal] = useState(true)
   const [sight, setSight] = useState("")
   const [calc, setCalc] = useState("")
+  const [clear, setClear]= useState(false)
   
+
+  useEffect(() => {
+    setView(value)
+  }, [value])
+
   const handleButtonPress = (content, equiv)=>()=>{
      if(sight ===""&&content==='%') return
      if(sight ===""&&content==='=') return
@@ -21,13 +27,7 @@ const App = () => {
       }
       else if (total===true){
            setSight(value + content)
-      }
-      // else if(sight==="" && content==="="){
-      //     return
-      // }
-      // else if(sight==="" && content==="%"){
-      //   setSight(sight)
-      // }
+      }  
       else if ((sight[sight.length-1] ==="." ) && (content==="." )){
           setSight(sight)
       }
@@ -46,6 +46,7 @@ const App = () => {
       else if(operator && content==='×'){
         return
        }
+      
       else setSight(sight + content)
 
 
@@ -55,19 +56,19 @@ const App = () => {
         setCalc(equiv)
     }
     else if (total===true){
-      setCalc(value + equiv)
+        setCalc(value + equiv)
     }
     else if ((calc[calc.length-1] ==="." ) && (equiv==="." )){
-      setCalc(calc)
+        setCalc(calc)
     }
     else if (operator && equiv==="."){
         setCalc(calc + '.')
     }
-    else if(operator && content==="+"){
+    else if((operator && content==="+")){
       return
     }
     else if(operator && content==="÷"){
-        return
+        return 
     }
     else if(operator && content==="−"){
         return
@@ -76,9 +77,9 @@ const App = () => {
       return
     }
     else setCalc(calc + equiv)
+    
+     console.log("value:"+value+ "/calc:" + calc + "/sight:" + sight + "/view:" +view)
 
-
-     
     const num = parseFloat(value)
 
     const operatorCheck = ()=>{
@@ -97,27 +98,45 @@ const App = () => {
         setTotal(false)
       }
     }
-
+    
     switch (content) {
-      case "#":
-          setOperator(null)
+      case "#":  
           setTotal(false)
           setSight(sight.substr(0,sight.length-1))
           setCalc(calc.substr(0,calc.length-1))
-          if(total===true){
-            setValue("")
-            setSight(value.substr(0,value.length-1))
-            setCalc(value.substr(0,value.length-1))
-            setHistory(parseFloat(value.substr(0,value.length-1)))
+          
+          setClear(true)
+          setValue(value.substr(0,value.length-1))
+          if((operator===null)&&(value.length===1 || value[value.length-1]==="0")){
+            setTotal(true)
           }
-          setHistory(parseFloat(calc.substr(0,calc.length-1)))
+          else if(value.length===1 && operator!==null){
+            setOperator(null)
+            setValue(history.toString())
+            setHistory(null)
+          }
+          else if(total===true){
+            setSight(value.substr(0,value.length-1))
+          }
+          console.log(value.length)
+          // if(calc[calc.length-2]&&calc[calc.length-2] ==='+'){
+          //   setClear(false)
+          //   setOperator(true)
+          //   setHistory(parseFloat(calc.substring(0, calc.indexOf("+"))))
+          //   setValue(calc.substring(calc.indexOf("+")))
+          // }else{
+          //   setOperator(null)
+          //   setHistory(null)
+          //   setValue(calc.substr(0,calc.length-1))
+          //   setClear(true)
+          // }
+          
+          
         return 
       case "C":
         setValue("0")
         setHistory(null)
         setOperator(null)
-        setView("0")
-        setTotal(false)
         setSight("")
         setCalc("")
         return 
@@ -125,53 +144,45 @@ const App = () => {
         setValue((num/100).toString())
         setHistory(null)
         setOperator(null)
-        setView((num/100).toString())
         setTotal(true)
         return
       case '+':
         operatorCheck()
-        setValue("0")
+        setValue("")
         setOperator('+')
-        setView(value)
+        
         return
       case '×':
         operatorCheck()
-        setValue("0")
+        setValue("")
         setOperator("×")
-        setView(value)
         return
       case '÷':
         operatorCheck()
-        setValue("0")
+        setValue("")
         setOperator('÷')
-        setView(value)
         return
       case '−':
         operatorCheck()
-        setValue("0")
+        setValue("")
         setOperator('−')
-        setView(value)
         return
       case '.':
         if(value.includes("."))return;
         setValue(value + ".")
-        setView(value + ".")
         return
       case '=':
+        if( sight ==="")return
         if(calc==="")return
         if(!operator)return
         if(operator ==='+'){
           setValue((Big(history).plus(num)).toString())
-          setView((Big(history).plus(num)).toString())
         }else if (operator === "−"){
           setValue((Big(history).minus(num)).toString())
-          setView((Big(history).minus(num)).toString())
         }else if (operator === "×"){
           setValue((Big(history).times(num)).toString())
-          setView((Big(history).times(num)).toString())
         }else if (operator === "÷"){
           setValue((Big(history).div(num)).toString())
-          setView((Big(history).div(num)).toString())
         }
         setOperator(null)
         setHistory(null)
@@ -184,10 +195,8 @@ const App = () => {
     }
     if(value[value.length-1]=== "."){
       setValue(value + content)
-      setView(value + content)
     }else{
       setValue(parseFloat(value + content).toString())
-      setView(parseFloat(value + content).toString())
       // setView(Big(parseFloat(value + content)).toString())
     }
   
@@ -203,7 +212,7 @@ const App = () => {
                         <div className="part1">
                             <div className="header">
                                 <span className="clock">
-                                  <i class="fa fa-history" ></i>
+                                  <i className="fa fa-history" ></i>
                                 </span>
                             </div>
                             <div className="display">

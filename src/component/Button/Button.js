@@ -6,7 +6,7 @@ export const Button = ({content,equiv, type, onButtonClick}) => {
         <div className ={`Button ${content==='='? 'equals': ""} ${type || ''}`}
         onClick ={onButtonClick(content, equiv)}>
             {content!=="#" ?content: 
-            <div><i class=" fa fa-window-close"></i></div>}
+            <div><i className=" fa fa-window-close"></i></div>}
         </div>
     )
 }

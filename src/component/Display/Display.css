@@ -1,4 +1,5 @@
-
+.view{
+}
 .calculation{
     text-align: right;
     height:40% ;
@@ -14,8 +15,10 @@
 }
 
 .calculation.length{
-    font-size: 1rem;
+    font-size: 1.5rem;
+    word-wrap: break-word;
 }
-.total.calculation.lengthy{
+.total.lengthy{
     font-size: 2rem;
+    word-wrap: break-word;
 }
