@@ -34,9 +34,10 @@
 
 @media (max-width: 360px){
     .Button{
-        width: 39px;
-        height: 45px;
+        width: 30px;
+        height: 39px;
         border-radius: 4px;
+        font-size: 15px;
     }
 }
 @media (max-width: 425px) and (min-width:360px){

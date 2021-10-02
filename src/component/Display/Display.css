@@ -1,5 +1,4 @@
-.view{
-}
+
 .calculation{
     text-align: right;
     height:40% ;
@@ -21,4 +20,19 @@
 .total.lengthy{
     font-size: 2rem;
     word-wrap: break-word;
+}
+
+@media (max-width: 360px){
+    .calculation{
+        font-size: 1rem;
+    }
+    .total{
+        font-size: 1.8rem;
+    }
+    .calculation.length{
+        font-size: .7rem;
+    }
+    .total.lengthy{
+        font-size: 1.5rem;
+    }
 }
